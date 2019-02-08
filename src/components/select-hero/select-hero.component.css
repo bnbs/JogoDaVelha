@@ -1,0 +1,13 @@
+.transform-character-1 {
+    transform: translate(-35%, 0);
+}
+
+.transform-character-2 {
+    transform: translate(37%, -100%);    
+}
+
+.transform-character-1,
+.transform-character-2 {
+    -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
