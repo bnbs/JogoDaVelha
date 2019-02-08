@@ -12,4 +12,7 @@ export class SelectHeroComponent implements OnInit {
   ngOnInit() {
   }
 
+  onHeroChange(heroName: string): void {
+    console.log('Hero Name: ' + heroName);
+  }
 }

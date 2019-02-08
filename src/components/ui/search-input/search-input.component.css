@@ -1,0 +1,10 @@
+.search-input {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #ccd4da;    
+}
+
+li.list-group-item:first-of-type {
+    border-top: none;
+}
