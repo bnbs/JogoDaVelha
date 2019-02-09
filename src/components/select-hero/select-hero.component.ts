@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Hero } from 'src/models/hero';
 import { AlertService } from 'src/services/alert.service';
 
@@ -8,6 +8,8 @@ import { AlertService } from 'src/services/alert.service';
   styleUrls: ['./select-hero.component.css']
 })
 export class SelectHeroComponent implements OnInit {
+
+  @Output() selectedHeroes = new EventEmitter<Array<Hero>>();
 
   heroPlayer1: Hero;
   heroPlayer2: Hero;
@@ -32,7 +34,7 @@ export class SelectHeroComponent implements OnInit {
       this.alertService.onHeroError();
     } else {
       this.alertService.onHeroSuccess(() => {
-        console.log('Time is over!');
+        this.selectedHeroes.emit([this.heroPlayer1, this.heroPlayer2]);
       });
     }
   }
