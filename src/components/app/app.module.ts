@@ -8,13 +8,15 @@ import { TicTacToeComponent } from '../tic-tac-toe/tic-tac-toe.component';
 import { SearchInputComponent } from '../ui/search-input/search-input.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeroCardComponent } from '../ui/hero-card/hero-card.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       SelectHeroComponent,
       TicTacToeComponent,
-      SearchInputComponent
+      SearchInputComponent,
+      HeroCardComponent
    ],
    imports: [
       BrowserModule,

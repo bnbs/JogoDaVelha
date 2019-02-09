@@ -1,0 +1,8 @@
+<div class="d-flex m-3">
+  <img [src]="hero.thumbnail"/>
+  <div class="d-flex flex-column justify-content-between align-items-center ml-3">
+    <h2>{{hero.name}}</h2>
+    <h2>{{firstToPlay? 'X' : 'O'}}</h2>
+    <h4 *ngIf="myTurn">Sua vez</h4>
+  </div>
+</div>
