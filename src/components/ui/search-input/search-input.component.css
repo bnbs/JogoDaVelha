@@ -1,3 +1,7 @@
+.input-group {
+    max-width: 460px;
+}
+
 .search-input {
     background-color: transparent;
     border-radius: 0;
@@ -21,5 +25,5 @@ input:focus {
 }
 
 .border-default {
-    border-bottom: 1px solid #ccd4da; 
+    border-bottom: 2px solid #ccd4da; 
 }

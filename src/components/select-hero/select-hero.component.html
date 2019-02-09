@@ -1,26 +1,20 @@
-<div class="bg-red position-relative overflow-hidden" style="height: 100vh">
+<div class="background position-relative overflow-hidden" style="height: 100vh">
   <div class="row h-100">
-    <div class="col-6 h-100">
-      <img *ngIf="heroPlayer1" class="transform-character-1 d-block mx-auto h-100" [src]="heroPlayer1?.thumbnail" />
+    <div class="col-md-12 col-lg-5 h-100 d-flex justify-content-space-evenly flex-column" id="col">
+      <div class="transform-out">
+        <img class="transform-character-1 d-block mx-auto" [src]="heroPlayer1 ? heroPlayer1.thumbnail : defaultHeroThumbnail" style="max-width: 100%"/>
+      </div>
+      <app-search-input (selectedHero)="onSelectedHero($event, 1)" placeholder="Jogador 1"></app-search-input>
     </div>
-    <div class="col-6 h-100">
-      <img *ngIf="heroPlayer2" class="transform-character-2 d-block mx-auto h-100" [src]="heroPlayer2?.thumbnail" />
+    <div class="col-md-12 col-lg-2 h-100 d-flex justify-content-center align-items-center flex-column my-5" id="col">
+        <h3 class="text-center text-white font-weight-bold mb-3">VS</h3>
+        <button type="button" class="btn btn-lg btn-outline-danger px-5" (click)="onStartGame()">START</button>
+    </div>
+    <div class="col-md-12 col-lg-5 h-100 d-flex justify-content-space-evenly flex-column" id="col">
+      <app-search-input (selectedHero)="onSelectedHero($event, 2)" placeholder="Jogador 2"></app-search-input>
+      <div class="transform-out">
+        <img class="transform-character-2 d-block mx-auto" [src]="heroPlayer2 ? heroPlayer2.thumbnail : defaultHeroThumbnail" style="max-width: 100%"/>
+      </div>
     </div>
   </div>
-  <form class="position-absolute w-100" style="top: 60%">
-    <div class="row justify-content-center m-0">
-      <div class="col-md-5 col-lg-3">
-        <app-search-input (selectedHero)="onSelectedHero($event, 1)"></app-search-input>
-      </div>
-      <div class="col-md-2 col-lg-1">
-        <h3 class="text-center text-white font-weight-bold my-3">VS</h3>
-      </div>
-      <div class="col-md-5 col-lg-3">
-        <app-search-input (selectedHero)="onSelectedHero($event, 2)" ></app-search-input>
-      </div>
-    </div>
-    <div class="row justify-content-center mx-0 my-5">
-      <button type="button" class="btn btn-lg btn-outline-danger px-5" (click)="onStartGame()">START</button>
-    </div>
-  </form>
 </div>

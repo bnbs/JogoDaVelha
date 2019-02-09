@@ -17,12 +17,14 @@ export class SearchInputComponent implements OnInit {
   heroName = new FormControl('');
   heroes: Array<Hero>;
   selectedHeroName: string;
+  placeholderText: string;
   isLoading: boolean = false;
 
   constructor(private marvelHeroService: MarvelHeroService) { }
 
   ngOnInit() {
     this.onChanges();
+    this.placeholderText = this.placeholder;
   }
 
   onChanges(): void {
@@ -56,21 +58,23 @@ export class SearchInputComponent implements OnInit {
   }
 
   onSelectHero(hero: Hero) {    
-    console.log('on select hero');
     this.heroName.setValue((this.selectedHeroName = hero.name)); 
     this.selectedHero.emit(hero);  
     this.heroes = undefined;
   }
 
   onFocusOut(){
-    console.log('on focus out: ');
     this.heroes = undefined;
+    if(!this.heroName.value || this.heroName.value === ''){
+      this.placeholder= this.placeholderText;
+    }
   }
 
   onFocus(){
     if(this.heroName.value && this.heroName.value !== ''){
       this.onHeroChange(this.heroName.value);
-      console.log('on focus: ' + this.heroName.value);
+    }else{
+      this.placeholder = '';
     }
   }
 }

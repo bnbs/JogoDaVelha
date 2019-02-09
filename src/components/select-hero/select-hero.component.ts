@@ -11,6 +11,7 @@ export class SelectHeroComponent implements OnInit {
 
   heroPlayer1: Hero;
   heroPlayer2: Hero;
+  defaultHeroThumbnail: string = "../../assets/images/default_hero_thumbnail.png";
 
   constructor(private alertService: AlertService) { }
 
