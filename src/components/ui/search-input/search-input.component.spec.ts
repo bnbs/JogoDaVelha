@@ -1,9 +1,12 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { SearchInputComponent } from './search-input.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MarvelHeroService } from 'src/services/marvel-hero.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SearchInputComponent', () => {
   let component: SearchInputComponent;
@@ -11,7 +14,9 @@ describe('SearchInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchInputComponent ]
+      imports: [ ReactiveFormsModule, FormsModule, HttpClientTestingModule],
+      declarations: [ SearchInputComponent ],
+      providers: [MarvelHeroService]
     })
     .compileComponents();
   }));
