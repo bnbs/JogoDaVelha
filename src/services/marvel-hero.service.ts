@@ -10,20 +10,20 @@ export class MarvelHeroService {
 
   private baseUrl = 'https://gateway.marvel.com:443/v1/public/';
 
-  constructor(private http: HttpClient) { }  
+  constructor(private http: HttpClient) { }
 
   getHero(name: string, by: string) {
 
-    const url =  this.baseUrl + 'characters?' + by + '=' + name;  
+    const url =  this.baseUrl + 'characters?' + by + '=' + name;
     return this.http.get(url).pipe(
       map((response: any) => {
-        let heroes = new Array<Hero>();
+        const heroes = new Array<Hero>();
         response.data.results.forEach(element => {
-          let hero: Hero = { name: element.name, thumbnail: element.thumbnail.path + '.' + element.thumbnail.extension }
-          heroes.push(hero)
+          const hero: Hero = { name: element.name, thumbnail: element.thumbnail.path + '.' + element.thumbnail.extension };
+          heroes.push(hero);
         });
         return heroes;
       })
     );
-  }  
+  }
 }

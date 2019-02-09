@@ -18,7 +18,7 @@ export class SearchInputComponent implements OnInit {
   heroes: Array<Hero>;
   selectedHeroName: string;
   placeholderText: string;
-  isLoading: boolean = false;
+  isLoading = false;
 
   constructor(private marvelHeroService: MarvelHeroService) { }
 
@@ -34,7 +34,7 @@ export class SearchInputComponent implements OnInit {
     ).subscribe((text) => {
       if (text !== this.selectedHeroName && text !== '') {
         this.onHeroChange(text);
-      }else if(text === ''){
+      } else if (text === '') {
         this.heroes = undefined;
         this.selectedHero.emit(undefined);
       }
@@ -44,36 +44,36 @@ export class SearchInputComponent implements OnInit {
   onHeroChange(heroName: string): void {
     this.isLoading = true;
     this.marvelHeroService.getHero(heroName, 'name').subscribe((heroes: Array<Hero>) => {
-      if(!heroes || heroes.length <= 0){
-        this.marvelHeroService.getHero(heroName, 'nameStartsWith').subscribe((heroes: Array<Hero>) => {
-          this.heroes = heroes;
+      if (!heroes || heroes.length <= 0) {
+        this.marvelHeroService.getHero(heroName, 'nameStartsWith').subscribe((heroList: Array<Hero>) => {
+          this.heroes = heroList;
           this.isLoading = false;
           this.selectedHero.emit(undefined);
         });
-      }else{
+      } else {
         this.onSelectHero(heroes[0]);
         this.isLoading = false;
       }
-    });    
+    });
   }
 
-  onSelectHero(hero: Hero) {    
-    this.heroName.setValue((this.selectedHeroName = hero.name)); 
-    this.selectedHero.emit(hero);  
+  onSelectHero(hero: Hero) {
+    this.heroName.setValue((this.selectedHeroName = hero.name));
+    this.selectedHero.emit(hero);
     this.heroes = undefined;
   }
 
-  onFocusOut(){
+  onFocusOut() {
     this.heroes = undefined;
-    if(!this.heroName.value || this.heroName.value === ''){
-      this.placeholder= this.placeholderText;
+    if (!this.heroName.value || this.heroName.value === '') {
+      this.placeholder = this.placeholderText;
     }
   }
 
-  onFocus(){
-    if(this.heroName.value && this.heroName.value !== ''){
+  onFocus() {
+    if (this.heroName.value && this.heroName.value !== '') {
       this.onHeroChange(this.heroName.value);
-    }else{
+    } else {
       this.placeholder = '';
     }
   }

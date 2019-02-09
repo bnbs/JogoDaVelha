@@ -24,7 +24,7 @@ export class AuthService {
     return (Date.now() / 1000 | 0).toString();
   }
 
-  getPublicKey(): string{
+  getPublicKey(): string {
     return this.publicKey;
   }
 }

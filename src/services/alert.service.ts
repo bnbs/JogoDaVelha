@@ -23,14 +23,14 @@ export class AlertService {
       html: 'Seu jogo comecará em <strong></strong> segundos.',
       timer: 5000,
       onBeforeOpen: () => {
-        Swal.showLoading()
+        Swal.showLoading();
         timerInterval = setInterval(() => {
           Swal.getContent().querySelector('strong')
-            .textContent = (Swal.getTimerLeft() / 1000 | 0).toString()
-        }, 100)
+            .textContent = (Swal.getTimerLeft() / 1000 | 0).toString();
+        }, 100);
       },
       onClose: () => {
-        clearInterval(timerInterval)
+        clearInterval(timerInterval);
       }
     }).then((result) => {
       if (
@@ -39,6 +39,6 @@ export class AlertService {
       ) {
         callback();
       }
-    })
+    });
   }
 }

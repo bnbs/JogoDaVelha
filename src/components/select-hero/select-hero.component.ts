@@ -11,7 +11,7 @@ export class SelectHeroComponent implements OnInit {
 
   heroPlayer1: Hero;
   heroPlayer2: Hero;
-  defaultHeroThumbnail: string = "../../assets/images/default_hero_thumbnail.png";
+  defaultHeroThumbnail = '../../assets/images/default_hero_thumbnail.png';
 
   constructor(private alertService: AlertService) { }
 
@@ -20,9 +20,9 @@ export class SelectHeroComponent implements OnInit {
 
   onSelectedHero(hero: Hero, player: number) {
     if (player === 1) {
-      this.heroPlayer1 = hero ? {...hero} : undefined; 
+      this.heroPlayer1 = hero ? {...hero} : undefined;
     } else {
-      this.heroPlayer2 = hero ? {...hero} : undefined; 
+      this.heroPlayer2 = hero ? {...hero} : undefined;
     }
   }
 
