@@ -1,10 +1,15 @@
 <div>
-  <input type="text" class="form-control text-center search-input text-dark" placeholder={{placeholder}} [formControl]="heroName">
+  <div class="input-group border-default">
+    <input type="text" class="form-control text-center search-input text-dark" [formControl]="heroName">
+    <div class="input-group-append" [hidden]="!isLoading">
+      <div class="spinner-border text-light" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
   <ul class="list-group overflow-auto" style="max-height: 200px">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item list-group-item-action" *ngFor="let hero of heroes" (click)="onSelectHero(hero)">
+      {{hero.name}}
+    </li>
   </ul>
 </div>

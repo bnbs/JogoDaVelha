@@ -1,13 +1,19 @@
 .transform-character-1 {
-    transform: translate(-35%, 0);
+    -webkit-clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
 }
 
 .transform-character-2 {
-    transform: translate(37%, -100%);    
+    -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
 }
 
 .transform-character-1,
 .transform-character-2 {
-    -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    filter: drop-shadow(0px 0px 12px #ffffff);
+}
+
+.bg-red{
+    background: rgb(117,0,0);
+    background: radial-gradient(circle, rgba(117,0,0,1) 0%, rgba(166,20,20,1) 100%);
 }

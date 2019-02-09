@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from 'src/models/hero';
 
 @Component({
   selector: 'app-select-hero',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectHeroComponent implements OnInit {
 
+  heroPlayer1: Hero;
+  heroPlayer2: Hero;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onHeroChange(heroName: string): void {
-    console.log('Hero Name: ' + heroName);
+  onSelectedHero(hero: Hero, player: number){
+    if(player === 1) this.heroPlayer1 = {...hero};
+    else this.heroPlayer2 = {...hero};
   }
 }
