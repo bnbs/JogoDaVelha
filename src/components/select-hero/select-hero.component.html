@@ -16,11 +16,11 @@
         <h3 class="text-center text-white font-weight-bold my-3">VS</h3>
       </div>
       <div class="col-md-5 col-lg-3">
-        <app-search-input (selectedHero)="onSelectedHero($event, 2)"></app-search-input>
+        <app-search-input (selectedHero)="onSelectedHero($event, 2)" ></app-search-input>
       </div>
     </div>
     <div class="row justify-content-center mx-0 my-5">
-      <button type="button" class="btn btn-lg btn-outline-danger px-5">START</button>
+      <button type="button" class="btn btn-lg btn-outline-danger px-5" (click)="onStartGame()">START</button>
     </div>
   </form>
 </div>

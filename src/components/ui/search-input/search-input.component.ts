@@ -30,7 +30,7 @@ export class SearchInputComponent implements OnInit {
       debounceTime(500),
       distinctUntilChanged()
     ).subscribe((text) => {
-      if (text !== this.selectedHeroName && text != '') {
+      if (text !== this.selectedHeroName && text !== '') {
         this.onHeroChange(text);
       }else if(text === ''){
         this.heroes = undefined;
@@ -56,12 +56,21 @@ export class SearchInputComponent implements OnInit {
   }
 
   onSelectHero(hero: Hero) {    
+    console.log('on select hero');
     this.heroName.setValue((this.selectedHeroName = hero.name)); 
     this.selectedHero.emit(hero);  
     this.heroes = undefined;
   }
 
   onFocusOut(){
+    console.log('on focus out: ');
     this.heroes = undefined;
+  }
+
+  onFocus(){
+    if(this.heroName.value && this.heroName.value !== ''){
+      this.onHeroChange(this.heroName.value);
+      console.log('on focus: ' + this.heroName.value);
+    }
   }
 }
