@@ -29,7 +29,9 @@ export class SelectHeroComponent implements OnInit {
   }
 
   onStartGame() {
-
+    this.heroPlayer1 = { name: 'Hulk', thumbnail: 'https://lumiere-a.akamaihd.net/v1/images/tmb-sq_character-hulk_launch_8ce79435.jpeg' };
+    // tslint:disable-next-line:max-line-length
+    this.heroPlayer2 = { name: 'Captain America', thumbnail: 'http://codplayercards.com/wp-content/uploads/2016/05/Captain-America-160x160.png' };
     if (!this.heroPlayer1 || !this.heroPlayer2) {
       this.alertService.onHeroError();
     } else {

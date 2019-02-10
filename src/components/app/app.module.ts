@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroCardComponent } from '../ui/hero-card/hero-card.component';
 import { GamePanelComponent } from '../game-panel/game-panel.component';
+import { GameBoardComponent } from '../game-board/game-board.component';
+import { BoardCellComponent } from '../game-board/board-cell/board-cell.component';
 
 @NgModule({
    declarations: [
@@ -18,14 +20,16 @@ import { GamePanelComponent } from '../game-panel/game-panel.component';
       TicTacToeComponent,
       SearchInputComponent,
       HeroCardComponent,
-      GamePanelComponent
+      GamePanelComponent,
+      GameBoardComponent,
+      BoardCellComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       AppRoutingModule,
       ReactiveFormsModule,
-      FormsModule,
+      FormsModule
    ],
    providers: [
       { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
