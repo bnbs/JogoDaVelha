@@ -1,10 +1,10 @@
 <div class="d-flex align-items-center justify-content-space-evenly flex-wrap" id="game-panel">
   <div class="col-5 my-2">
-    <app-hero-card [hero]="heroes ? heroes[0] : undefined" player="1"></app-hero-card>
+    <app-hero-card [hero]="heroes ? heroes[0] : undefined" player="1" [firstToPlay]="+firstToPlay === 1"></app-hero-card>
   </div>
   <div class="col-2">
   </div>
   <div class="col-5 my-2">
-    <app-hero-card [hero]="heroes ? heroes[1] : undefined" player="2"></app-hero-card>
+    <app-hero-card [hero]="heroes ? heroes[1] : undefined" player="2" [firstToPlay]="+firstToPlay === 2"></app-hero-card>
   </div>
 </div>

@@ -9,6 +9,7 @@ export class TicTacToeService {
   private gameBoard: Map<string, string>;
   private gameBoardSubject: Subject<Map<string, string>>;
   private turn: string;
+  private firstToPlay: number;
 
   constructor() {
     this.initializeGame();
@@ -17,6 +18,7 @@ export class TicTacToeService {
 
   initializeGame() {
     this.initializeGameBoard();
+    this.firstToPlay = this.whoIsGoingToStart();
     this.turn = 'X';
   }
 
@@ -30,8 +32,17 @@ export class TicTacToeService {
     return this.gameBoard;
   }
 
+  whoIsGoingToStart() {
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    return randomNumber % 2 === 0 ? 1 : 2;
+  }
+
   getGameBoard() {
     return this.gameBoardSubject.asObservable();
+  }
+
+  getFirstToPlay() {
+    return this.firstToPlay;
   }
 
   setValueToGameBoard(key: string) {

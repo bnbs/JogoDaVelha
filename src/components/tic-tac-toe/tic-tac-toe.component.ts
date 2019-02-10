@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../models/hero';
+import { TicTacToeService } from 'src/services/tic-tac-toe.service';
 
 @Component({
   selector: 'app-tic-tac-toe',
@@ -10,10 +11,12 @@ export class TicTacToeComponent implements OnInit {
 
   heroes: Array<Hero>;
   startGame = false;
+  firstToPlay: number;
 
-  constructor() { }
+  constructor(private ticTacToeService: TicTacToeService) { }
 
   ngOnInit() {
+    this.firstToPlay = this.ticTacToeService.getFirstToPlay();
   }
 
   selectedHeroes(heroes: Array<Hero>) {

@@ -1,5 +1,5 @@
 <div *ngIf="startGame" class="background mt-0 d-flex flex-column justify-content-around" style="height: 100vh">
-    <app-game-panel [heroes]="heroes"></app-game-panel>
+    <app-game-panel [heroes]="heroes" [firstToPlay]="firstToPlay"></app-game-panel>
     <app-game-board></app-game-board>
 </div>
 <app-select-hero *ngIf="!startGame" (selectedHeroes)="selectedHeroes($event)"></app-select-hero>

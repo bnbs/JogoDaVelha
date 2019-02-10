@@ -9,6 +9,7 @@ import { Hero } from '../../models/hero';
 export class GamePanelComponent implements OnInit {
 
   @Input() heroes: Array<Hero>;
+  @Input() firstToPlay: number;
 
   constructor() { }
 
