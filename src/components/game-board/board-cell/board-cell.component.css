@@ -16,7 +16,7 @@ span {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .cell-border {
         border: 4px solid white;
     }

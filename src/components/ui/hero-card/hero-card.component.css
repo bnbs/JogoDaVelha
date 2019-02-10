@@ -13,7 +13,7 @@ img {
     justify-content: space-evenly
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 992px) { 
     #hero-card {
         align-items: center;
         flex-flow: column;        

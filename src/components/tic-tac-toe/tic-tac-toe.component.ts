@@ -14,6 +14,7 @@ export class TicTacToeComponent implements OnInit {
   startGame = false;
   firstToPlay: number;
   winner: number;
+  loadGame = false;
 
   constructor(private ticTacToeService: TicTacToeService, private alertService: AlertService) { }
 
@@ -35,6 +36,10 @@ export class TicTacToeComponent implements OnInit {
   startNewGame() {
     this.ticTacToeService.initializeGame();
     this.firstToPlay = this.ticTacToeService.getFirstToPlay();
+  }
+
+  onLoadGame() {
+    this.loadGame = true;
   }
 
   selectedHeroes(heroes: Array<Hero>) {

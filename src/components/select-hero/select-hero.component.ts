@@ -10,6 +10,7 @@ import { AlertService } from 'src/services/alert.service';
 export class SelectHeroComponent implements OnInit {
 
   @Output() selectedHeroes = new EventEmitter<Array<Hero>>();
+  @Output() loadGame = new EventEmitter<boolean>();
 
   heroPlayer1: Hero;
   heroPlayer2: Hero;
@@ -35,6 +36,7 @@ export class SelectHeroComponent implements OnInit {
     if (!this.heroPlayer1 || !this.heroPlayer2) {
       this.alertService.onHeroError();
     } else {
+      this.loadGame.emit(true);
       this.alertService.onHeroSuccess(() => {
         this.selectedHeroes.emit([this.heroPlayer1, this.heroPlayer2]);
       });
