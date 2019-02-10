@@ -25,7 +25,7 @@ export class TicTacToeService {
     this.turn = 'X';
   }
 
-  private initializeGameBoard() {
+  initializeGameBoard() {
     this.gameBoard = new Map<string, string>();
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {
