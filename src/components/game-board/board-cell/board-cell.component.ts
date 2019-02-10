@@ -8,10 +8,11 @@ import { Component, OnInit, Output, Input } from '@angular/core';
 export class BoardCellComponent implements OnInit {
 
   @Input() cellMark: string;
+  @Input() cellPosition: string;
 
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
 }
