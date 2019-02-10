@@ -21,11 +21,20 @@ export class TicTacToeComponent implements OnInit {
     this.firstToPlay = this.ticTacToeService.getFirstToPlay();
     this.ticTacToeService.getTicTacToeResult().subscribe((result) => {
       if (result.winner) {
-        this.alertService.onGameWinner(this.heroes[result.winner - 1], result.winner);
+        this.alertService.onGameWinner(this.heroes[result.winner - 1], result.winner).subscribe(() => {
+          this.startNewGame();
+        });
       } else if (result.gameOver) {
-        this.alertService.onGameDraw();
+        this.alertService.onGameDraw().subscribe(() => {
+          this.startNewGame();
+        });
       }
     });
+  }
+
+  startNewGame() {
+    this.ticTacToeService.initializeGame();
+    this.firstToPlay = this.ticTacToeService.getFirstToPlay();
   }
 
   selectedHeroes(heroes: Array<Hero>) {

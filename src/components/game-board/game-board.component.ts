@@ -13,7 +13,6 @@ export class GameBoardComponent implements OnInit {
   constructor(private tictTacToeService: TicTacToeService) { }
 
   ngOnInit() {
-    this.gameBoard = this.tictTacToeService.initializeGameBoard();
     this.tictTacToeService.getGameBoard().subscribe((board: Map<string, string>) => {
       this.gameBoard = board;
     });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import { TicTacToeResultService } from './tic-tac-toe-result.service';
 
 @Injectable({
@@ -14,9 +14,9 @@ export class TicTacToeService {
   private ticTacToeResult: Subject<any>;
 
   constructor(private ticTacToeResultService: TicTacToeResultService) {
-    this.initializeGame();
-    this.gameBoardSubject = new Subject<Map<string, string>>();
+    this.gameBoardSubject = new BehaviorSubject<Map<string, string>>(this.gameBoard);
     this.ticTacToeResult = new Subject<any>();
+    this.initializeGame();
   }
 
   initializeGame() {
@@ -32,7 +32,7 @@ export class TicTacToeService {
         this.gameBoard.set((i.toString().concat(j.toString())), '');
       }
     }
-    return this.gameBoard;
+    this.gameBoardSubject.next(this.gameBoard);
   }
 
   whoIsGoingToStart() {
@@ -67,7 +67,6 @@ export class TicTacToeService {
       const secondToPlay = this.firstToPlay === 1 ? 2 : 1;
       this.ticTacToeResult.next({winner: this.turn === 'X' ? this.firstToPlay : secondToPlay});
     } else if (this.ticTacToeResultService.isDraw(this.gameBoard)) {
-      console.log('to aqui');
       this.ticTacToeResult.next({gameOver: true});
     } else {
       this.turn = this.turn === 'X' ? 'O' : 'X';

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 import { Hero } from '../models/hero';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,6 @@ export class AlertService {
       }
     }).then((result) => {
       if (
-        // Read more about handling dismissals
         result.dismiss === Swal.DismissReason.timer
       ) {
         callback();
@@ -43,8 +43,8 @@ export class AlertService {
     });
   }
 
-  onGameDraw() {
-    Swal.fire({
+  onGameDraw(): Observable<SweetAlertResult> {
+    return from(Swal.fire({
       title: 'Resultado',
       text: 'Acredite se quiser, deu velha!',
       imageUrl: 'https://media.giphy.com/media/fNBFa6NCMeZJm/giphy.gif',
@@ -52,12 +52,13 @@ export class AlertService {
       imageHeight: 300,
       imageAlt: 'facepalm',
       animation: false,
-      confirmButtonText: 'Jogar Novamente'
-    });
+      confirmButtonText: 'Jogar Novamente',
+      allowOutsideClick: false
+    }));
   }
 
-  onGameWinner(hero: Hero, playerNumber: number) {
-    Swal.fire({
+  onGameWinner(hero: Hero, playerNumber: number): Observable<SweetAlertResult> {
+    return from(Swal.fire({
       title: 'Resultado',
       text: 'Jogador número: ' + playerNumber + ' - ' + hero.name + ' ganhou!',
       imageUrl: hero.thumbnail,
@@ -66,7 +67,8 @@ export class AlertService {
       imageAlt: hero.name,
       animation: false,
       customClass: 'object-cover',
-      confirmButtonText: 'Revanche'
-    });
+      confirmButtonText: 'Revanche',
+      allowOutsideClick: false
+    }));
   }
 }
