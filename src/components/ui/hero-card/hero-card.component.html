@@ -1,8 +1,7 @@
-<div class="d-flex m-3" [ngClass]="{'flex-row-reverse': +player === 2}">
-  <img [src]="hero?.thumbnail" [ngClass]="{'border-red': +player === 2}"/>
-  <div class="d-flex flex-column justify-content-between align-items-center flex-grow-1" [ngClass]="{'ml-3': +player === 1, 'mr-3': +player === 2}">
-    <h4 class="text-center">{{hero?.name}}</h4>
-    <h1 class="font-weight-bold">{{firstToPlay? 'X' : 'O'}}</h1>
-    <h4 *ngIf="myTurn">Sua vez</h4>
+<div class="d-flex justify-content-start m-3" [ngClass]="{'flex-row-reverse': +player === 2}" id="hero-card">
+  <img [src]="hero?.thumbnail" class="rounded-circle border my-2"/>
+  <div class="d-flex flex-column justify-content-between align-items-center flex-grow-1" [ngClass]="{'ml-3': +player === 1, 'mr-3': +player === 2}" id="hero-info">
+    <h2 class="text-white font-weight-bold text-center my-2">{{hero?.name}}</h2>
+    <h1 class="font-weight-bold text-white" id="first-to-play">{{firstToPlay? 'X' : 'O'}}</h1>
   </div>
 </div>
