@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../models/hero';
 import { TicTacToeService } from 'src/services/tic-tac-toe.service';
+import { AlertService } from 'src/services/alert.service';
 
 @Component({
   selector: 'app-tic-tac-toe',
@@ -14,15 +15,15 @@ export class TicTacToeComponent implements OnInit {
   firstToPlay: number;
   winner: number;
 
-  constructor(private ticTacToeService: TicTacToeService) { }
+  constructor(private ticTacToeService: TicTacToeService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.firstToPlay = this.ticTacToeService.getFirstToPlay();
     this.ticTacToeService.getTicTacToeResult().subscribe((result) => {
       if (result.winner) {
-        console.log('Jogador número: ' + result.winner + ' - ' + this.heroes[result.winner - 1].name);
+        this.alertService.onGameWinner(this.heroes[result.winner - 1], result.winner);
       } else if (result.gameOver) {
-        console.log('Deu Velha!');
+        this.alertService.onGameDraw();
       }
     });
   }

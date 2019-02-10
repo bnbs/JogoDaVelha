@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { Hero } from '../models/hero';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,33 @@ export class AlertService {
       ) {
         callback();
       }
+    });
+  }
+
+  onGameDraw() {
+    Swal.fire({
+      title: 'Resultado',
+      text: 'Acredite se quiser, deu velha!',
+      imageUrl: 'https://media.giphy.com/media/fNBFa6NCMeZJm/giphy.gif',
+      imageWidth: 400,
+      imageHeight: 300,
+      imageAlt: 'facepalm',
+      animation: false,
+      confirmButtonText: 'Jogar Novamente'
+    });
+  }
+
+  onGameWinner(hero: Hero, playerNumber: number) {
+    Swal.fire({
+      title: 'Resultado',
+      text: 'Jogador número: ' + playerNumber + ' - ' + hero.name + ' ganhou!',
+      imageUrl: hero.thumbnail,
+      imageWidth: 400,
+      imageHeight: 300,
+      imageAlt: hero.name,
+      animation: false,
+      customClass: 'object-cover',
+      confirmButtonText: 'Revanche'
     });
   }
 }
