@@ -12,6 +12,7 @@ import { HeroCardComponent } from '../ui/hero-card/hero-card.component';
 import { GamePanelComponent } from '../game-panel/game-panel.component';
 import { GameBoardComponent } from '../game-board/game-board.component';
 import { BoardCellComponent } from '../game-board/board-cell/board-cell.component';
+import { ScoreboardComponent } from '../game-panel/scoreboard/scoreboard.component';
 
 @NgModule({
    declarations: [
@@ -22,7 +23,8 @@ import { BoardCellComponent } from '../game-board/board-cell/board-cell.componen
       HeroCardComponent,
       GamePanelComponent,
       GameBoardComponent,
-      BoardCellComponent
+      BoardCellComponent,
+      ScoreboardComponent
    ],
    imports: [
       BrowserModule,
