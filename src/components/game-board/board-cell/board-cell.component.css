@@ -1,3 +1,10 @@
 .cell-border {
     border: 2px solid white;
 }
+
+span {
+    font-weight: 900;
+    font-size: 5rem;
+    color: aliceblue;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+}

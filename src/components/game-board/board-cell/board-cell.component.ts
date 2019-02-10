@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-board-cell',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board-cell.component.css']
 })
 export class BoardCellComponent implements OnInit {
+
+  @Input() cellMark: string;
 
   constructor() { }
 

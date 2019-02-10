@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TicTacToeService } from '../../services/tic-tac-toe.service';
 
 @Component({
   selector: 'app-game-board',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameBoardComponent implements OnInit {
 
-  constructor() { }
+  gameBoard: Map<string, string>;
+
+  constructor(private tictTacToeService: TicTacToeService) { }
 
   ngOnInit() {
+    this.gameBoard = this.tictTacToeService.initializeGameBoard();
+    this.tictTacToeService.getGameBoard().subscribe((board: Map<string, string>) => {
+      this.gameBoard = board;
+    });
   }
 
+  onSelectBoardCell(position: string) {
+    this.tictTacToeService.setValueToGameBoard(position);
+  }
 }

@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('00')" (click)="onSelectBoardCell('00')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('01')" (click)="onSelectBoardCell('01')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('02')" (click)="onSelectBoardCell('02')"></app-board-cell>
   </div>
   <div class="row">
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('10')" (click)="onSelectBoardCell('10')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('11')" (click)="onSelectBoardCell('11')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('12')" (click)="onSelectBoardCell('12')"></app-board-cell>
   </div>
   <div class="row">
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
-    <app-board-cell></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('20')" (click)="onSelectBoardCell('20')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('21')" (click)="onSelectBoardCell('21')"></app-board-cell>
+    <app-board-cell [cellMark]="gameBoard.get('22')" (click)="onSelectBoardCell('22')"></app-board-cell>
   </div>
 </div>
