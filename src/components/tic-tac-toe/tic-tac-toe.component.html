@@ -1,2 +1,5 @@
-<app-select-hero (selectedHeroes)="selectedHeroes($event)"></app-select-hero>
-<!-- <app-hero-card></app-hero-card> -->
+<div *ngIf="startGame" class="background mt-0" style="height: 100vh">
+    <app-game-panel [heroes]="heroes"></app-game-panel>
+</div>
+<app-select-hero *ngIf="!startGame" (selectedHeroes)="selectedHeroes($event)"></app-select-hero>
+

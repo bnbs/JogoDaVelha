@@ -11,6 +11,7 @@ export class HeroCardComponent implements OnInit {
   @Input() hero: Hero;
   @Input() myTurn: boolean;
   @Input() firstToPlay: boolean;
+  @Input() player: number;
 
   constructor() { }
 

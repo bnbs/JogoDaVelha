@@ -9,6 +9,7 @@ import { SearchInputComponent } from '../ui/search-input/search-input.component'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroCardComponent } from '../ui/hero-card/hero-card.component';
+import { GamePanelComponent } from '../game-panel/game-panel.component';
 
 @NgModule({
    declarations: [
@@ -16,7 +17,8 @@ import { HeroCardComponent } from '../ui/hero-card/hero-card.component';
       SelectHeroComponent,
       TicTacToeComponent,
       SearchInputComponent,
-      HeroCardComponent
+      HeroCardComponent,
+      GamePanelComponent
    ],
    imports: [
       BrowserModule,

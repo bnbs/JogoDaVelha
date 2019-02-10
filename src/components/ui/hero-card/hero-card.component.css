@@ -4,3 +4,7 @@ img {
     object-fit: cover;
     border: 4px solid blue;
 }
+
+.border-red {
+    border-color: red;
+}

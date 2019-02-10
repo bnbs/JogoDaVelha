@@ -9,6 +9,8 @@ import { Hero } from '../../models/hero';
 export class TicTacToeComponent implements OnInit {
 
   heroes: Array<Hero>;
+  startGame = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -16,5 +18,6 @@ export class TicTacToeComponent implements OnInit {
 
   selectedHeroes(heroes: Array<Hero>) {
     this.heroes = [...heroes];
+    this.startGame = true;
   }
 }
