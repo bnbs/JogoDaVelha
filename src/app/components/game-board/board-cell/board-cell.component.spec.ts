@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { BoardCellComponent } from './board-cell.component';
 
-fdescribe('BoardCellComponent', () => {
+describe('BoardCellComponent', () => {
   let component: BoardCellComponent;
   let fixture: ComponentFixture<BoardCellComponent>;
   let debugElement: DebugElement;
