@@ -7,7 +7,7 @@
       <app-search-input (selectedHero)="onSelectedHero($event, 1)" placeholder="Jogador 1"></app-search-input>
     </div>
     <div class="col-md-12 col-lg-2 h-100 d-flex justify-content-center align-items-center flex-column my-5" id="col">
-      <h3 class="text-center text-white font-weight-bold mb-3">VS</h3>
+      <img [src]="vsIcon" class="vs-icon"/>
       <button type="button" class="btn btn-lg btn-outline-light px-5 text-white font-weight-bold" (click)="onStartGame()" id="start-button">START</button>
     </div>
     <div class="col-md-12 col-lg-5 h-100 d-flex justify-content-space-evenly flex-column" id="col">
