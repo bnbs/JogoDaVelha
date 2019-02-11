@@ -2,3 +2,7 @@
 .object-cover img{ 
     object-fit: cover;
 }
+
+.justify-content-space-evenly {
+    justify-content: space-evenly
+}

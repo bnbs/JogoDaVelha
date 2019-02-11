@@ -1,9 +1,0 @@
-.border {
-    border: 2px solid white !important;
-}
-
-@media (max-width: 576px) {
-    .player {
-        display: none;
-    }
-}
