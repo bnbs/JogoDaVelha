@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { BoardCellComponent } from './board-cell.component';
 
-describe('BoardCellComponent', () => {
+fdescribe('BoardCellComponent', () => {
   let component: BoardCellComponent;
   let fixture: ComponentFixture<BoardCellComponent>;
   let debugElement: DebugElement;
@@ -31,18 +31,16 @@ describe('BoardCellComponent', () => {
 
   it('should show X', () => {
     component.cellMark = 'X';
-    setTimeout(() => {
-      const marker = debugElement.query(By.css('span')).nativeElement.innerText;
-      expect(marker).toBe('X');
-    }, 1000);
+    fixture.detectChanges();
+    const marker = debugElement.query(By.css('span')).nativeElement.innerText;
+    expect(marker).toBe('X');
   });
 
   it('should show O', () => {
     component.cellMark = 'O';
-    setTimeout(() => {
-      const marker = debugElement.query(By.css('span')).nativeElement.innerText;
-      expect(marker).toBe('O');
-    }, 1000);
+    fixture.detectChanges();
+    const marker = debugElement.query(By.css('span')).nativeElement.innerText;
+    expect(marker).toBe('O');
   });
 
   it('should have border-top-0 and border-left-0 class', () => {
