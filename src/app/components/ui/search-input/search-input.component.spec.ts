@@ -5,7 +5,7 @@ import { DebugElement, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { SearchInputComponent } from './search-input.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MarvelHeroService } from 'src/services/marvel-hero.service';
+import { MarvelHeroService } from '../../../services/marvel-hero.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SearchInputComponent', () => {
