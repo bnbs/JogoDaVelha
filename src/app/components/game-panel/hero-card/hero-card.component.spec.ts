@@ -39,49 +39,42 @@ describe('HeroCardComponent', () => {
 
   it('should show marker X', () => {
     component.firstToPlay = true;
-    setTimeout(() => {
-      const marker = debugElement.query(By.css('h1')).nativeElement.innerText;
-      expect(marker).toBe('X');
-    }, 1000);
+    fixture.detectChanges();
+    const marker = debugElement.query(By.css('h1')).nativeElement.innerText;
+    expect(marker).toBe('X');
   });
 
   it('should show marker O', () => {
     component.firstToPlay = false;
-    setTimeout(() => {
-      const marker = debugElement.query(By.css('h1')).nativeElement.innerText;
-      expect(marker).toBe('O');
-    }, 1000);
+    fixture.detectChanges();
+    const marker = debugElement.query(By.css('h1')).nativeElement.innerText;
+    expect(marker).toBe('O');
   });
 
   it('should have animation class', () => {
     component.myTurn = true;
-    setTimeout(() => {
-      const image = debugElement.query(By.css('img.player-turn-animation')).nativeElement;
-      expect(image).toBeDefined();
-    }, 1000);
+    fixture.detectChanges();
+    const image = debugElement.query(By.css('img.player-turn-animation')).nativeElement;
+    expect(image).toBeDefined();
   });
 
   it('should not have animation class', () => {
     component.myTurn = false;
-    setTimeout(() => {
-      const image = debugElement.query(By.css('img.player-turn-animation')).nativeElement;
-      expect(image).toBeUndefined();
-    }, 1000);
+    fixture.detectChanges();
+    const image = debugElement.query(By.css('img.player-turn-animation'));
+    expect(image).toBeNull();
   });
 
   it('should load default image', () => {
     component.hero = undefined;
-    setTimeout(() => {
-      const image = debugElement.query(By.css('img')).nativeElement;
-      expect(image.src).toBe(component.defaultThumbnail);
-    }, 1000);
+    fixture.detectChanges();
+    const image = debugElement.query(By.css('img')).nativeElement;
+    expect(image.src).toContain('default_hero_thumbnail.png');
   });
 
   it('should load hero image', () => {
-    component.hero = undefined;
-    setTimeout(() => {
-      const image = debugElement.query(By.css('img')).nativeElement;
-      expect(image.src).toBe(heroThumbnail);
-    }, 1000);
+    fixture.detectChanges();
+    const image = debugElement.query(By.css('img')).nativeElement;
+    expect(image.src).toContain('Hulk_Artwork.jpg');
   });
 });
