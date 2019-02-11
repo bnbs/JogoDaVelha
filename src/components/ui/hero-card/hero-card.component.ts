@@ -13,6 +13,8 @@ export class HeroCardComponent implements OnInit {
   @Input() firstToPlay: boolean;
   @Input() player: number;
 
+  defaultThumbnail = '../../assets/images/default_hero_thumbnail.png';
+
   constructor() { }
 
   ngOnInit() {

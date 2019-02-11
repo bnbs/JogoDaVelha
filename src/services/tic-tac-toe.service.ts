@@ -10,6 +10,7 @@ export class TicTacToeService {
   private gameBoard: Map<string, string>;
   private gameBoardSubject: Subject<Map<string, string>>;
   private turn: string;
+  private playerTurnSubject: BehaviorSubject<number>;
   private firstToPlay: number;
   private ticTacToeResult: Subject<any>;
   private score: Array<number>;
@@ -27,6 +28,12 @@ export class TicTacToeService {
     this.initializeGameBoard();
     this.firstToPlay = this.whoIsGoingToStart();
     this.turn = 'X';
+
+    if (!this.playerTurnSubject) {
+      this.playerTurnSubject = new BehaviorSubject<number>(this.firstToPlay);
+    }else{
+      this.playerTurnSubject.next(this.firstToPlay);
+    }
   }
 
   initializeGameBoard() {
@@ -52,6 +59,10 @@ export class TicTacToeService {
     return this.ticTacToeResult.asObservable();
   }
 
+  getPlayerTurn() {
+    return this.playerTurnSubject.asObservable();
+  }
+
   getFirstToPlay() {
     return this.firstToPlay;
   }
@@ -66,14 +77,14 @@ export class TicTacToeService {
       this.gameBoard.set(key, this.turn);
       this.gameBoardSubject.next(this.gameBoard);
       this.checkBoard();
+      this.playerTurnSubject.next(this.getCurrentPlayer());
     }
   }
 
   checkBoard() {
 
     if (this.ticTacToeResultService.isWinner(this.turn, this.gameBoard)) {
-      const secondToPlay = this.firstToPlay === 1 ? 2 : 1;
-      const winnerPlayer = this.turn === 'X' ? this.firstToPlay : secondToPlay;
+      const winnerPlayer = this.getCurrentPlayer();
       this.score[winnerPlayer - 1] = this.score[winnerPlayer - 1] + 1;
       this.ticTacToeResult.next({winner: winnerPlayer});
       this.scoreSubject.next(this.score);
@@ -82,5 +93,10 @@ export class TicTacToeService {
     } else {
       this.turn = this.turn === 'X' ? 'O' : 'X';
     }
+  }
+
+  getCurrentPlayer() {
+    const secondToPlay = this.firstToPlay === 1 ? 2 : 1;
+    return this.turn === 'X' ? this.firstToPlay : secondToPlay;
   }
 }

@@ -24,22 +24,15 @@ span {
 
 @media (min-width: 576px) { 
     .square-size {
-        height: 160px;
-        width: 160px;
+        height: 150px;
+        width: 150px;
     }
 }
 
 @media (min-width: 768px) { 
     .square-size {
-        height: 170px;
-        width: 170px;
-    }
-}
-
-@media (min-width: 992px) {  
-    .square-size {
-        height: 180px;
-        width: 180px;
+        height: 160px;
+        width: 160px;
     }
 }
 

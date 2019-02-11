@@ -9,12 +9,16 @@ import { TicTacToeService } from '../../services/tic-tac-toe.service';
 export class GameBoardComponent implements OnInit {
 
   gameBoard: Map<string, string>;
+  playerTurn: number;
 
   constructor(private tictTacToeService: TicTacToeService) { }
 
   ngOnInit() {
     this.tictTacToeService.getGameBoard().subscribe((board: Map<string, string>) => {
       this.gameBoard = board;
+    });
+    this.tictTacToeService.getPlayerTurn().subscribe((player) => {
+      this.playerTurn = player;
     });
   }
 
