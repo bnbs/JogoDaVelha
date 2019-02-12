@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TicTacToeComponent } from './components/tic-tac-toe/tic-tac-toe.component';
 
 const routes: Routes = [
-  { path: '', component: TicTacToeComponent }
+  { path: '', component: TicTacToeComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
