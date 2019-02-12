@@ -39,7 +39,7 @@ span {
 
 @media (min-width: 1200px) { 
     .square-size {
-        height: 200px;
-        width: 200px;
+        height: 180px;
+        width: 180px;
     }
 }
